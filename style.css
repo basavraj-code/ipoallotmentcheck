@@ -1,0 +1,321 @@
+:root {
+  --ink: #10241B;
+  --ink-2: #17332A;
+  --ink-3: #1E3D31;
+  --paper: #F3EEDD;
+  --paper-2: #ECE5CE;
+  --paper-line: #D9CFAE;
+  --brass: #B8863B;
+  --brass-light: #D9AE6B;
+  --rupee-red: #A23B2E;
+  --good: #4C7A57;
+  --ink-text: #211F14;
+  --cream-text: #EFE9D8;
+  --cream-text-dim: #C9C2AA;
+
+  --serif: "Source Serif 4", Georgia, serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Consolas, monospace;
+}
+
+* { box-sizing: border-box; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+html, body {
+  margin: 0;
+  background: var(--ink);
+  color: var(--cream-text);
+  font-family: var(--serif);
+  line-height: 1.55;
+}
+
+.ledger { max-width: 760px; margin: 0 auto; padding: 0 20px 64px; }
+
+/* ---------- Cover / hero ---------- */
+.cover {
+  padding: 72px 0 48px;
+  border-bottom: 1px solid rgba(239,233,216,0.18);
+}
+.cover-inner { position: relative; }
+
+.stamp {
+  float: right;
+  width: 108px;
+  height: 108px;
+  border: 2px solid var(--brass);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transform: rotate(8deg);
+  margin: 0 0 16px 20px;
+  opacity: 0.85;
+}
+.stamp span {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.04em;
+  color: var(--brass-light);
+  line-height: 1.5;
+}
+
+.eyebrow-plain {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--brass-light);
+  margin: 0 0 10px;
+}
+
+.cover h1 {
+  font-size: clamp(2.1rem, 5vw, 3.1rem);
+  font-weight: 700;
+  margin: 0 0 20px;
+  color: var(--cream-text);
+  max-width: 11ch;
+}
+
+.cover-sub {
+  max-width: 58ch;
+  color: var(--cream-text-dim);
+  font-size: 1.05rem;
+}
+
+/* ---------- Sections ---------- */
+main { padding-top: 8px; }
+
+.entry {
+  background: var(--paper);
+  color: var(--ink-text);
+  border-radius: 3px;
+  padding: 28px 28px 32px;
+  margin-top: 28px;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.25);
+}
+
+.entry-title {
+  font-family: var(--mono);
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  color: var(--brass);
+  margin: 0 0 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--paper-line);
+}
+
+/* ---------- Search ---------- */
+.search-box { position: relative; }
+
+#ipo-search {
+  width: 100%;
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  padding: 12px 14px;
+  border: 1px solid var(--paper-line);
+  background: var(--paper-2);
+  color: var(--ink-text);
+  border-radius: 2px;
+}
+#ipo-search:focus {
+  outline: 2px solid var(--brass);
+  outline-offset: 1px;
+}
+
+.search-results {
+  position: absolute;
+  left: 0; right: 0; top: calc(100% + 4px);
+  background: var(--paper);
+  border: 1px solid var(--paper-line);
+  max-height: 320px;
+  overflow-y: auto;
+  z-index: 10;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+}
+.search-result-item {
+  padding: 11px 14px;
+  cursor: pointer;
+  border-bottom: 1px solid var(--paper-line);
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: baseline;
+}
+.search-result-item:last-child { border-bottom: none; }
+.search-result-item:hover, .search-result-item:focus {
+  background: var(--paper-2);
+}
+.search-result-item .type-tag { font-family: var(--mono); font-size: 11px; color: var(--brass); white-space: nowrap; }
+.search-empty { padding: 14px; color: #6b6650; font-family: var(--mono); font-size: 13px; }
+
+.hint {
+  font-family: var(--mono);
+  font-size: 12.5px;
+  color: #6b6650;
+  margin: 12px 0 0;
+}
+
+/* ---------- Ledger rows (IPO facts + category table) ---------- */
+.ledger-rows { width: 100%; border-collapse: collapse; }
+.ledger-rows tr { border-bottom: 1px solid var(--paper-line); }
+.ledger-rows tr:last-child { border-bottom: none; }
+.ledger-rows td { padding: 10px 4px; vertical-align: baseline; }
+.ledger-rows td:first-child { color: #4a4632; }
+.ledger-rows td:last-child { text-align: right; font-family: var(--mono); font-variant-numeric: tabular-nums; }
+
+.ipo-heading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+.ipo-heading h3 { margin: 0; font-size: 1.3rem; }
+.type-badge {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.03em;
+  padding: 3px 8px;
+  border: 1px solid var(--brass);
+  color: var(--brass);
+  border-radius: 999px;
+}
+
+.odds-tag {
+  font-family: var(--mono);
+  font-weight: 600;
+}
+.odds-tag.tight { color: var(--rupee-red); }
+.odds-tag.loose { color: var(--good); }
+
+.notes-box {
+  margin-top: 16px;
+  padding: 10px 12px;
+  background: var(--paper-2);
+  border-left: 3px solid var(--brass);
+  font-family: var(--mono);
+  font-size: 12.5px;
+  color: #59533c;
+}
+
+/* ---------- Inputs ---------- */
+.input-row { margin-bottom: 20px; }
+.input-row label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.field-hint {
+  display: block;
+  font-weight: 400;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: #6b6650;
+  margin-top: 3px;
+}
+.input-row input {
+  width: 100%;
+  font-family: var(--mono);
+  font-size: 1.1rem;
+  padding: 11px 12px;
+  border: 1px solid var(--paper-line);
+  background: var(--paper-2);
+  color: var(--ink-text);
+  border-radius: 2px;
+}
+.input-row input:focus { outline: 2px solid var(--brass); outline-offset: 1px; }
+
+.brass-btn {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 1rem;
+  background: var(--brass);
+  color: var(--ink);
+  border: none;
+  padding: 13px 24px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+.brass-btn:hover { background: var(--brass-light); }
+.brass-btn:active { transform: translateY(1px); }
+.brass-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* ---------- Results ---------- */
+.headline-odds {
+  text-align: center;
+  padding: 18px 0 26px;
+  border-bottom: 1px solid var(--paper-line);
+  margin-bottom: 20px;
+}
+.headline-odds .figure {
+  font-family: var(--mono);
+  font-size: clamp(2.4rem, 8vw, 3.4rem);
+  font-weight: 600;
+  color: var(--good);
+  display: block;
+  line-height: 1;
+}
+.headline-odds .figure.tight { color: var(--rupee-red); }
+.headline-odds .caption {
+  font-family: var(--mono);
+  font-size: 12.5px;
+  color: #6b6650;
+  margin-top: 8px;
+}
+
+.alloc-table { width: 100%; border-collapse: collapse; margin-top: 4px; }
+.alloc-table th {
+  text-align: left;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.02em;
+  color: #6b6650;
+  padding: 0 4px 8px;
+  border-bottom: 1px solid var(--paper-line);
+}
+.alloc-table th:last-child, .alloc-table td:last-child { text-align: right; }
+.alloc-table td {
+  padding: 10px 4px;
+  border-bottom: 1px solid var(--paper-line);
+  font-family: var(--mono);
+  font-variant-numeric: tabular-nums;
+}
+.alloc-table td.cat-name { font-family: var(--serif); font-variant-numeric: normal; }
+.alloc-table tr:last-child td { border-bottom: none; }
+
+.leftover-note {
+  margin-top: 16px;
+  font-family: var(--mono);
+  font-size: 12.5px;
+  color: #6b6650;
+}
+
+.empty-state {
+  font-family: var(--mono);
+  font-size: 13.5px;
+  color: #6b6650;
+  line-height: 1.7;
+}
+.empty-state a { color: var(--brass); }
+
+/* ---------- Footer ---------- */
+.colophon {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(239,233,216,0.18);
+  font-family: var(--mono);
+  font-size: 11.5px;
+  line-height: 1.7;
+  color: var(--cream-text-dim);
+}
+#last-updated-footer { margin-top: 10px; color: var(--brass-light); }
+
+a { color: inherit; }
+
+@media (max-width: 560px) {
+  .entry { padding: 22px 18px 26px; }
+  .stamp { width: 84px; height: 84px; }
+  .stamp span { font-size: 9px; }
+}

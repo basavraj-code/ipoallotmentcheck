@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Allotment Ledger — IPO application odds</title>
+<meta name="description" content="Enter how many PANs and how much money you have for an IPO. See how SEBI's lottery rules stack the odds, and how to split your applications.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="ledger">
+
+  <header class="cover">
+    <div class="cover-inner">
+      <div class="stamp" aria-hidden="true">
+        <span>SEBI<br>DRAW&nbsp;OF&nbsp;LOTS</span>
+      </div>
+      <p class="eyebrow-plain">A calculator for Indian IPO applicants</p>
+      <h1>The Allotment Ledger</h1>
+      <p class="cover-sub">
+        In an oversubscribed IPO, allotment isn't proportional — it's a lottery.
+        Every application, big or small, gets one ticket. This ledger works out
+        how to spread your money and your PAN cards across categories to give
+        your household the best odds of winning at least one lot.
+      </p>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- SEARCH -->
+    <section class="entry" id="search-section">
+      <h2 class="entry-title">1. Find the issue</h2>
+      <div class="search-box">
+        <input type="text" id="ipo-search" placeholder="Type an IPO name…" autocomplete="off" aria-label="Search for an IPO">
+        <div id="search-results" class="search-results" hidden></div>
+      </div>
+      <p class="hint" id="data-freshness">Loading current listings…</p>
+    </section>
+
+    <!-- SELECTED IPO -->
+    <section class="entry" id="ipo-section" hidden>
+      <h2 class="entry-title">2. Today's standing</h2>
+      <div id="ipo-card"></div>
+    </section>
+
+    <!-- INPUTS -->
+    <section class="entry" id="inputs-section" hidden>
+      <h2 class="entry-title">3. What you're working with</h2>
+      <div class="input-row">
+        <label for="num-pans">
+          Unique PAN applicants
+          <span class="field-hint">Each PAN is one lottery ticket — no PAN can apply twice.</span>
+        </label>
+        <input type="number" id="num-pans" min="1" step="1" value="1" inputmode="numeric">
+      </div>
+      <div class="input-row">
+        <label for="total-money">
+          Total money available (₹)
+          <span class="field-hint">Across all applicants combined.</span>
+        </label>
+        <input type="number" id="total-money" min="0" step="1000" placeholder="e.g. 200000" inputmode="numeric">
+      </div>
+      <button id="calc-btn" class="brass-btn">Work out the odds</button>
+    </section>
+
+    <!-- RESULTS -->
+    <section class="entry" id="results-section" hidden>
+      <h2 class="entry-title">4. Recommended allocation</h2>
+      <div id="results-card"></div>
+    </section>
+
+  </main>
+
+  <footer class="colophon">
+    <p>
+      Subscription figures are pulled from <a href="https://www.chittorgarh.com/" target="_blank" rel="noopener">chittorgarh.com</a>
+      on a ~20-minute refresh — not tick-by-tick. Numbers move fastest in the closing hours of bidding, so treat
+      anything shown here as a working estimate, not the final basis of allotment. This tool applies a simplified
+      reading of SEBI's draw-of-lots rules for retail/individual and sNII/bNII (or SME "Individual Investor")
+      categories; it has no connection to SEBI, any exchange, or any registrar, and isn't investment advice.
+    </p>
+    <p id="last-updated-footer"></p>
+  </footer>
+
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
