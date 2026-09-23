@@ -1,28 +1,6 @@
 {
-  "generated_at": "2026-09-23T02:33:51.533975+00:00",
+  "generated_at": "2026-09-23T07:57:50.849383+00:00",
   "source": "chittorgarh.com (scraped)",
-  "count": 1,
-  "ipos": [
-    {
-      "name": "Green Asia Impex IPO",
-      "slug": "green-asia-impex-ipo",
-      "ipo_id": "2963",
-      "type": "SME",
-      "detail_url": "https://www.chittorgarh.com/ipo/green-asia-impex-ipo/2963/",
-      "subscription_url": "https://www.chittorgarh.com/ipo_subscription/green-asia-impex-ipo/2963/",
-      "open_date": null,
-      "close_date": null,
-      "price_band_min": null,
-      "price_band_max": null,
-      "lot_size": null,
-      "face_value": null,
-      "total_subscription_times": null,
-      "last_updated_text": null,
-      "categories": {},
-      "notes": [
-        "Could not load detail page: HTTPSConnectionPool(host='www.chittorgarh.com', port=443): Read timed out. (read timeout=20)",
-        "Could not load subscription page: HTTPSConnectionPool(host='www.chittorgarh.com', port=443): Read timed out. (read timeout=20)"
-      ]
-    }
-  ]
+  "count": 0,
+  "ipos": []
 }
