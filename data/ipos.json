@@ -1,6 +1,28 @@
 {
-  "generated_at": "2026-10-03T07:04:22.011803+00:00",
+  "generated_at": "2026-10-03T12:37:53.334131+00:00",
   "source": "chittorgarh.com (scraped)",
-  "count": 0,
-  "ipos": []
+  "count": 1,
+  "ipos": [
+    {
+      "name": "Shree TNB Polymers IPO",
+      "slug": "shree-tnb-polymers-ipo",
+      "ipo_id": "3095",
+      "type": "SME",
+      "detail_url": "https://www.chittorgarh.com/ipo/shree-tnb-polymers-ipo/3095/",
+      "subscription_url": "https://www.chittorgarh.com/ipo_subscription/shree-tnb-polymers-ipo/3095/",
+      "open_date": null,
+      "close_date": null,
+      "price_band_min": null,
+      "price_band_max": null,
+      "lot_size": null,
+      "face_value": null,
+      "total_subscription_times": null,
+      "last_updated_text": null,
+      "categories": {},
+      "notes": [
+        "Could not load detail page: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))",
+        "Could not load subscription page: HTTPSConnectionPool(host='www.chittorgarh.com', port=443): Read timed out."
+      ]
+    }
+  ]
 }
